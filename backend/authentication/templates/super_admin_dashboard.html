@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Admin Dashboard</title>
+</head>
+<body>
+    <h2>Super Admin Panel</h2>
+    <p>Total Users: {{ total_users }}</p>
+    <p>Total Clubs: {{ total_clubs }}</p>
+    <h3>Club Admins</h3>
+    <ul>
+        {% for admin in club_admins %}
+            <li>{{ admin.username }} - {{ admin.email }}</li>
+        {% empty %}
+            <li>No club admins available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'user_logout' %}">Logout</a>
+</body>
+</html>

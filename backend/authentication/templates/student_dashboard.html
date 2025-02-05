@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ student.user.username }}</h2>
+    <h3>Registered Events</h3>
+    <ul>
+        {% for event in registered_events %}
+            <li>{{ event.event.name }} - {{ event.status }}</li>
+        {% empty %}
+            <li>No registered events.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

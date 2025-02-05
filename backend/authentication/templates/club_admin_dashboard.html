@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Club Admin Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ club_admin.user.username }}</h2>
+    <h3>Managed Club: {{ club_admin.club.name }}</h3>
+    <h3>Events:</h3>
+    <ul>
+        {% for event in club_events %}
+            <li>{{ event.name }}</li>
+        {% empty %}
+            <li>No events created.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'user_logout' %}">Logout</a>
+</body>
+</html>
